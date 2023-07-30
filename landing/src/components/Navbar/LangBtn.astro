@@ -1,0 +1,12 @@
+---
+const { lang } = Astro.props;
+---
+
+<!-- <script>
+  const lang = document.documentElement.getAttribute("lang");
+  document.getElementById("lang__indicator").innerText = lang;
+</script> -->
+<a class="flex justify-between w-full" href={lang === "vi" ? "/" : "/vi"}>
+  <p>Language</p>
+  <p class="uppercase" id="lang__indicator">{lang}</p>
+</a>

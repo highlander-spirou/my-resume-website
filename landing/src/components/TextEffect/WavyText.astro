@@ -1,0 +1,31 @@
+---
+const textList = Array.from("hello");
+---
+
+<div class="wavy mb-2 text-5xl font-semibold">
+  {
+    textList.map((letter, index) => (
+      <span style={`--i:${index}`} class="uppercase">
+        {letter}
+      </span>
+    ))
+  }
+</div>
+
+<style>
+.wavy span {
+  position: relative;
+  display: inline-block;
+  animation: waviy 2.2s infinite;
+  animation-delay: calc(.1s * var(--i));
+  
+}
+@keyframes waviy {
+  0%,40%,100% {
+    transform: translateY(0)
+  }
+  20% {
+    transform: translateY(-20px)
+  }
+}
+</style>

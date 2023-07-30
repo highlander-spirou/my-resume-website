@@ -1,6 +1,40 @@
+---
+import { Image } from "astro:assets";
+import PortraitImg from "@assets/undraw_Drink_coffee_v3au.png";
+import WavyText from "@components/TextEffect/WavyText.astro";
+import Typewritter from "@components/TextEffect/Typewritter.astro";
+import ContactBtn from '@components/ContactBtn'
+
+const { lang } = Astro.props;
+const capables = await Astro.glob("../i18n/IntroductionCapable/*.md");
+---
+
 <section
   id="introduction"
-  class="bg-yellow-200 relative min-h-[750px] h-screen sm:max-h-[650px] flex items-center justify-center sm:block -mt-10 sm:pt-20 sm:pb-5 scroll-mt-20"
+  class="relative min-h-[750px] h-fit sm:max-h-[650px] flex items-center justify-center sm:block -mt-10 sm:pt-20 sm:pb-5 scroll-mt-20 mb-5"
 >
-hello
+  <div
+    class="relative flex flex-col sm:flex-row gap-10 sm:gap-16 justify-center items-center sm:-ml-[100px] sm:pt-0"
+  >
+    <Image
+      src={PortraitImg}
+      alt="portrait"
+      class="w-72 h-72 sm:w-80 sm:h-96 object-cover rounded-md shadow-2xl bg-gradient-to-b from-slate-200 to-gray-200"
+    />
+    <div class="max-w-[500px]">
+      <WavyText />
+      <p class="text-5xl font-bold">I'm Nhân Lê</p>
+      <Typewritter />
+      <p class="font-medium uppercase">CAPABILITIES 💪:</p>
+      {
+        capables
+          .filter((x) => x.frontmatter.lang === lang)
+          .map((x) => <x.Content />)
+      }
+    <div class="flex gap-5">
+      <ContactBtn client:load/>
+      <a class="btn btn-primary" href="#education">{lang ==='en' ? "Read more" : "Tìm hiểu thêm"}</a>
+    </div>
+    </div>
+  </div>
 </section>

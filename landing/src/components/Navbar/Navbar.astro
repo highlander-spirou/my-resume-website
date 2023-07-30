@@ -1,1 +1,84 @@
-<div>
+---
+import ThemeBtn from "@components/ThemeBtn";
+import LangBtn from "./LangBtn.astro";
+const navItems = [
+  { id: "introduction", label: "Introduction" },
+  { id: "education", label: "Education" },
+  { id: "experience", label: "Experience" },
+];
+const { lang } = Astro.props;
+---
+
+<script>
+  const menu = document.getElementById("dropdown__menu");
+  document.addEventListener("click", (event) => {
+    const target = event.target as any;
+    if (!menu.contains(target)) {
+      menu.removeAttribute("open");
+    }
+  });
+</script>
+<script>
+  import { $currentSection } from "@store/currentSection";
+  $currentSection.subscribe(() => {
+    const links = document.getElementsByClassName("nav__link");
+    Array.from(links).forEach((li) => {
+      if (li.id === `nav__link_${$currentSection.get()}`) {
+        li.classList.add("link__active");
+      } else {
+        li.classList.remove("link__active");
+      }
+    });
+  });
+</script>
+
+<div class="h-20 sticky top-0 bg-base-100 z-10">
+  <div class="navbar bg-base-100 border-b-[1px]">
+    <div class="flex-1">
+      <p class="font-semibold normal-case text-xl cursor-default">Nhân Lê</p>
+    </div>
+    <div class="hidden sm:flex items-center navbar-end">
+      <ul class="menu menu-horizontal px-1 font-semibold text-base">
+        {
+          navItems.map((item) => (
+            <li class="nav__link" id={`nav__link_${item.id}`}>
+              <a href={`#${item.id}`}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <details class="dropdown dropdown-end" id="dropdown__menu">
+      <summary class="m-1 btn btn-ghost">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"></path>
+        </svg>
+      </summary>
+      <ul
+        class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-40 hover:bg-none disabled"
+      >
+        <li>
+          <div>
+            <ThemeBtn client:load />
+          </div>
+        </li>
+        <li><LangBtn lang={lang}/></li>
+      </ul>
+    </details>
+  </div>
+</div>
+<style>
+  .link__active {
+    @apply text-primary-focus;
+  }
+</style>

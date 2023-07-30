@@ -1,6 +1,19 @@
-<section
-  id="education"
-  class="bg-red-100 h-fit scroll-mt-20"
->
-asfhjsaf
+---
+import Collapse from "@components/Collapse"
+const { lang } = Astro.props;
+const overview = await Astro.glob("../i18n/EducationOverview/*.md");
+---
+
+<section id="education" class="h-fit scroll-mt-20">
+  <div class="w-[90%] mx-auto pb-4">
+    <h1 class="pt-1 text-5xl font-bold text-center">🎓 Education</h1>
+    <p class="pt-5">
+      {
+        overview
+          .filter((x) => x.frontmatter.lang === lang)
+          .map((x) => <x.Content />)
+      }
+    </p>
+    <Collapse client:load/>
+  </div>
 </section>

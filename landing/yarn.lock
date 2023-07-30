@@ -736,6 +736,13 @@
     picocolors "^1.0.0"
     tslib "^2.6.0"
 
+"@solid-primitives/clipboard@^1.5.6":
+  version "1.5.6"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/clipboard/-/clipboard-1.5.6.tgz#320b36c6597b43d97fe007fa8d0156f8ae6d6927"
+  integrity sha512-fG60S5/TSxfZy7gyNysPfft+IY1HJYP6dDlZWKfx3drwEFVfFXsoXqpiE13DUrxKhZehpuh5kLqhUvF2ebXyGw==
+  dependencies:
+    "@solid-primitives/utils" "^6.2.0"
+
 "@solid-primitives/event-listener@^2.2.10", "@solid-primitives/event-listener@^2.2.13":
   version "2.2.13"
   resolved "https://registry.yarnpkg.com/@solid-primitives/event-listener/-/event-listener-2.2.13.tgz#3cdb6279cc7878e538716793a3f07d7884f5a8a2"
@@ -2134,6 +2141,11 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
+lodash.throttle@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+  integrity sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==
+
 log-symbols@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-5.1.0.tgz#a20e3b9a5f53fac6aeb8e2bb22c07cf2c8f16d93"
@@ -2647,6 +2659,11 @@ nanoid@^3.3.6:
   version "3.3.6"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.6.tgz#443380c856d6e9f9824267d960b4236ad583ea4c"
   integrity sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==
+
+nanostores@^0.9.3:
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/nanostores/-/nanostores-0.9.3.tgz#a095de5cb695e027b84657d5e31cabd6c5bb269c"
+  integrity sha512-KobZjcVyNndNrb5DAjfs0WG0lRcZu5Q1BOrfTOxokFLi25zFrWPjg+joXC6kuDqNfSt9fQwppyjUBkRPtsL+8w==
 
 network-information-types@^0.1.1:
   version "0.1.1"
