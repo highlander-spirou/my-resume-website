@@ -81,8 +81,7 @@ const en = [
         id: 'item-1',
         header: 'Programming Languages',
         children: <p>
-            The programming languages that I've learnt are
-            <CodeText>Python</CodeText>, <CodeText>Javascript</CodeText>,
+            The programming languages that I've learnt are {" "} <CodeText>Python</CodeText>, <CodeText>Javascript</CodeText>,
             <CodeText>Typescript</CodeText>, <CodeText>SQL</CodeText>,
             and <CodeText>VBA</CodeText>
         </p>,

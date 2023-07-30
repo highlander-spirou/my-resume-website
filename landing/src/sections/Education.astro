@@ -1,5 +1,6 @@
 ---
-import Collapse from "@components/Collapse"
+import Collapse from "@components/Collapse";
+import Certs from "@components/Certs/Certs.astro";
 const { lang } = Astro.props;
 const overview = await Astro.glob("../i18n/EducationOverview/*.md");
 ---
@@ -14,6 +15,7 @@ const overview = await Astro.glob("../i18n/EducationOverview/*.md");
           .map((x) => <x.Content />)
       }
     </p>
-    <Collapse client:load/>
+    <Collapse client:load />
+    <Certs />
   </div>
 </section>

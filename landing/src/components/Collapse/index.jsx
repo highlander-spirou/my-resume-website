@@ -26,6 +26,7 @@ const AccordionItem = ({ id, header, children }) => {
     </Accordion.Item>
 }
 
+
 const Collapse = () => {
     const [contentLang, setContent] = createSignal('en')
     createEffect(() => {
