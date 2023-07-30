@@ -6,17 +6,19 @@ const content = [
 ]
 ---
 <script>
-    import { $isModalOpen } from "@store/modalState"
+    import { toggleModalState, switchImg } from "@store/modalState"
     const btns = document.getElementsByName('hover-certificates')
     Array.from(btns).forEach(btn => {
         btn.addEventListener('click', (e) => {
         let id
-        if(e.target.id === "") {
-            id = e.target.parentElement.id
+        const target = e.target as any
+        if(target.id === "") {
+            id = target.parentElement.id
         } else {
-            id = e.target.id
+            id = target.id
         }
-        $isModalOpen.set(1)
+        toggleModalState(1)
+        switchImg(id)
     })
     });
 </script>
@@ -34,7 +36,7 @@ const content = [
     <p class="text-2xl font-semibold mt-3">Data certificates</p>
     <a
     name="hover-certificates"
-    id="data-cert"
+    id="IELTS"
     class="flex gap-2 items-center mt-5 mb-5 text-base font-semibold cursor-pointer hover:bg-base-200 p-2 rounded-md">
         <p>Read more</p>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
